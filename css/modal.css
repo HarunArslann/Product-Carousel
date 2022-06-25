@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  overflow: hidden;
+}
+
+.alert{
+  background: #1c232a;
+  padding: 20px 40px;
+  min-width: 30%;
+  position: absolute;
+  right: 0;
+  bottom: 50;
+  border-radius: 10px;
+  border-left: 6px solid #556a7f;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.alert.showAlert{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.alert.show{
+  animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide {
+  0%{
+    transform: translateX(100%);
+  }
+  40%{
+    transform: translateX(-10%);
+  }
+  80%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-10px);
+  }
+}
+.alert.hide{
+  animation: hide_slide 1s ease forwards;
+}
+@keyframes hide_slide {
+  0%{
+    transform: translateX(-10px);
+  }
+  40%{
+    transform: translateX(0%);
+  }
+  80%{
+    transform: translateX(-10%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+.alert .fa-check-circle{
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4eb467;
+  font-size: 30px;
+}
+.alert .msg{
+  padding: 0 20px;
+  font-size: 18px;
+  color: white;
+}
+
+.alert .msg span{
+  cursor: pointer;
+  color: #97a5d2;
+}
+.alert .close-btn{
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  padding: 20px 18px;
+  cursor: pointer;
+}
+.alert .close-btn:hover .fas{
+  font-size: 30px;
+  transition: 0.3s;
+}
+.alert .close-btn .fas{
+  color: white;
+  font-size: 22px;
+  line-height: 40px;
+}

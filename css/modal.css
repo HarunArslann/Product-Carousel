@@ -25,6 +25,8 @@ body{
   opacity: 0;
   pointer-events: none;
   position: fixed;
+  bottom: 20px;
+  z-index: 2;
 }
 
 .alert.showAlert{

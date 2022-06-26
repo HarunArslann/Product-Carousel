@@ -12,6 +12,6 @@
 <center> <h2> Preview </h2> </center>
 
 
-<p align="center" width="100%">
-    <img width="90%" src="./images/preview.png">
+<p align="center" width="100%" >
+    <img width="80%" height="350px" src="./images/Sample.gif">
 </p>

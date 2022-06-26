@@ -24,6 +24,7 @@ body{
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
+  position: fixed;
 }
 
 .alert.showAlert{

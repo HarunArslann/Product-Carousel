@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
   $.getJSON("product-list.json", function (result) {
@@ -33,12 +32,10 @@ function showProducts(result, categoryName) {
 </div>
 </div>`);
 
-
   })
 
   lazyLoad(products);
 }
-
 
 function shippingFee(shipping) {
 
@@ -51,19 +48,19 @@ function shippingFee(shipping) {
 }
 
 function lazyLoad(items) {
-  let options = {
-    root: document.querySelector('.product-container'),
+  const options = {
+    root: document.querySelector('.carousel'),
     threshold: 0.5
   };
 
-  let observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const entryId = entry.target.dataset.id;
       const item = items.find(x => x.productId === entryId);
 
       if (item && entry.isIntersecting) {
         const img = document.createElement('img');
-        img.src = item['image'];
+        img.src = item.image;
 
         entry.target.childNodes[1].appendChild(img);
         entry.target.classList.toggle('show');
@@ -74,7 +71,7 @@ function lazyLoad(items) {
     })
   }, options);
 
-  let products = document.querySelectorAll('.product-card');
+  const products = document.querySelectorAll('.product-card');
 
   products.forEach((product) => {
     observer.observe(product)
@@ -93,7 +90,7 @@ const categoryMap = {
 
 $(document).ready(function () {
 
-  const productContainers = [...document.querySelectorAll('.product-container')];
+  const productContainers = [...document.querySelectorAll('.carousel')];
 
   $('.nxt-btn img').click(function () {
     productContainers.forEach((item, i) => {
@@ -106,7 +103,7 @@ $(document).ready(function () {
       item.scrollLeft -= 550;
     })
   });
-  
+
   let timer = null;
 
   $('.product-container').on('click', '.button-a', function () {
@@ -158,18 +155,18 @@ $(document).ready(function () {
   $('li button').click(function () {
 
     $(".product-container").empty()
-  
+
     $('li button').each(function () {
       $(this).removeClass('selectedclass')
       $(this).closest("li").removeClass('selectedclass')
     });
-  
+
     $(this).addClass('selectedclass');
     $(this).closest("li").addClass('selectedclass');
-  
-  
-    let categoryName = $(this).text();
-  
+
+
+    const categoryName = $(this).text();
+
     $.getJSON("product-list.json", function (result) {
       showProducts(result, categoryMap[categoryName]);
     });

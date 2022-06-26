@@ -13,5 +13,5 @@
 
 
 <p align="center" width="100%" >
-    <img width="80%" height="350px" src="./images/Sample.gif">
+    <img width="100%" height="500px" src="./images/Sample.gif">
 </p>

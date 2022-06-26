@@ -9,8 +9,10 @@
 - The products section is designed to be slideable.
 - The project desing is responsive. (works properly in different resolutions)
 
+<p align="center" width="100%">
+    <h2 style="text-align:center;">  Preview </h2>
+</p>
 
-<h2 style="text-align:center;">  Preview </h2>
 
 <p align="center" width="100%">
     <img width="90%" src="./images/preview.png">

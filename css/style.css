@@ -55,7 +55,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-
+  padding-left: 16px;
 }
 
 li button.selectedclass
@@ -68,19 +68,16 @@ li button.selectedclass
 ul li.selectedclass {
   border-left: 4px solid;
   border-color: blue;
-  padding-inline-start: 16px;
+  
 }
-
-
 
 .button-b:hover button{
   background-color: #eff7fe;
   color: #234aba;
 }
 
-
-
 .line {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -125,10 +122,15 @@ body{
 
 .product-card {
   flex: 0 0 auto;
-  width: 15%;
+  width: 7%;
   margin-right: 20px;
   border: 0.5px solid rgb(228, 226, 226);
   border-radius: 10px;
+  opacity: 0;
+}
+
+.product-card.show {
+  opacity: 1;
 }
 
 .product-image {
@@ -193,7 +195,6 @@ body{
   
 }
 
-
 .price {
   text-indent: 10px;
   font-weight: 550;
@@ -218,7 +219,6 @@ body{
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
   z-index: 1;
 }
-
 
 .pre-btn{
   left: 160px;
@@ -249,53 +249,86 @@ body{
   cursor: pointer;
 }
 
-.collection-container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-}
-
-.collection {
-  position: relative;
-}
-
-.collection img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.collection p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: blue;
-  font-size: 50px;
-  text-transform: capitalize;
-}
-
-.collection:nth-child(3) {
-  grid-column: span 2;
-  margin-bottom: 10px;
-}
-
 ul {
+
   list-style-type: none;
   margin-right: 20px;
   z-index: 2;
 }
 
-ul>li {
-  padding-inline-start: 20px;
-}
 
 ul>li:hover {
 
   border-left: 4px solid;
   border-color: blue;
-  padding-inline-start: 16px;
-  transition-delay: 0.1s;
+  
+}
+
+@media screen and (max-width: 768px) {
+
+  ul{
+    display: flex;
+    margin-bottom: 30px;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .line{
+    flex-direction: column;
+  }
+
+  .button-b button{
+    width: unset;
+    padding: 0 16px;
+  }
+
+  ul>li:hover {
+    border-left: unset;
+    border-bottom: 2px solid;
+    border-color: blue;
+    
+  }
+
+  ul li.selectedclass {
+    border-left: unset;
+    border-bottom: 2px solid;
+    border-color: blue;
+  }
+  
+  ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  li button.selectedclass{
+    
+  background-color: unset;
+  color: unset;
+  
+  }
+
+  .product-card {
+    
+    width: 25%;
+    
+  }
+
+  .carousel {
+    position: relative;
+  }
+
+  .pre-btn{
+    display: none;
+  }
+  
+  .nxt-btn{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .product-card {
+    
+    width: 40%;
+    
+  }
 }
